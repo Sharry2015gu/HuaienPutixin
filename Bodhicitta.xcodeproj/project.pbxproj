@@ -33,6 +33,8 @@
 		C5EFEC2E1BD6338700547D52 /* PhoneEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFEC2D1BD6338700547D52 /* PhoneEmailViewController.m */; };
 		C5EFEC311BD6395600547D52 /* EmailStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFEC301BD6395600547D52 /* EmailStyleViewController.m */; };
 		DC26C3041BDE3218000CEEDF /* GitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26C3031BDE3218000CEEDF /* GitTestViewController.m */; };
+		DC26C3071BDE3538000CEEDF /* HaixiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26C3061BDE3538000CEEDF /* HaixiaViewController.m */; };
+		DC26C30A1BDE35BC000CEEDF /* hhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC26C3091BDE35BC000CEEDF /* hhViewController.m */; };
 		DC3B3A331B660FA3000053AE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3B3A321B660FA3000053AE /* SystemConfiguration.framework */; };
 		DC3B3A371B662088000053AE /* QiFo_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3B3A361B662088000053AE /* QiFo_MainViewController.m */; };
 		DC3BDBD81B687C2200E094E0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BDBC31B687C2200E094E0 /* AFHTTPRequestOperation.m */; };
@@ -877,6 +879,10 @@
 		C5EFEC301BD6395600547D52 /* EmailStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailStyleViewController.m; sourceTree = "<group>"; };
 		DC26C3021BDE3218000CEEDF /* GitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitTestViewController.h; sourceTree = "<group>"; };
 		DC26C3031BDE3218000CEEDF /* GitTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitTestViewController.m; sourceTree = "<group>"; };
+		DC26C3051BDE3538000CEEDF /* HaixiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaixiaViewController.h; sourceTree = "<group>"; };
+		DC26C3061BDE3538000CEEDF /* HaixiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaixiaViewController.m; sourceTree = "<group>"; };
+		DC26C3081BDE35BC000CEEDF /* hhViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hhViewController.h; sourceTree = "<group>"; };
+		DC26C3091BDE35BC000CEEDF /* hhViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hhViewController.m; sourceTree = "<group>"; };
 		DC3B3A321B660FA3000053AE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DC3B3A351B662088000053AE /* QiFo_MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiFo_MainViewController.h; sourceTree = "<group>"; };
 		DC3B3A361B662088000053AE /* QiFo_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiFo_MainViewController.m; sourceTree = "<group>"; };
@@ -2186,6 +2192,10 @@
 			children = (
 				DC5C1CD21B16BFE10052B2E0 /* AESCrypt.h */,
 				DC5C1CD31B16BFE10052B2E0 /* AESCrypt.m */,
+				DC26C3051BDE3538000CEEDF /* HaixiaViewController.h */,
+				DC26C3061BDE3538000CEEDF /* HaixiaViewController.m */,
+				DC26C3081BDE35BC000CEEDF /* hhViewController.h */,
+				DC26C3091BDE35BC000CEEDF /* hhViewController.m */,
 			);
 			name = AES;
 			path = ../..;
@@ -4702,6 +4712,7 @@
 				DCD4F86A1BC7633F006C79FF /* OnlineMusicTableViewCell.m in Sources */,
 				DCD3FA661B8EB091005A5C27 /* TributeModel.m in Sources */,
 				DC8E73CF1BCB56300079E55A /* EAIntroPage.m in Sources */,
+				DC26C3071BDE3538000CEEDF /* HaixiaViewController.m in Sources */,
 				DCD3FA791B8EB12C005A5C27 /* TestView.m in Sources */,
 				DC881AF91B96937B00E962C9 /* ZaiXian_JSViewController.m in Sources */,
 				C56891F31BCE643C0098684C /* PracticeMonthViewController.m in Sources */,
@@ -4741,6 +4752,7 @@
 				DCD4F86D1BC7D2F7006C79FF /* SearchBookOrMusicViewController.m in Sources */,
 				DC57F5851BA94063009EFC66 /* UserInfoEditingTableViewCell.m in Sources */,
 				DC8E73C41BCB55BF0079E55A /* UIImage+MultiFormat.m in Sources */,
+				DC26C30A1BDE35BC000CEEDF /* hhViewController.m in Sources */,
 				B54CD8CA1BDDDB7C0061B6C4 /* split.c in Sources */,
 				DC881B871B969A9800E962C9 /* LoginModel.m in Sources */,
 				DC8E73D01BCB56300079E55A /* EAIntroView.m in Sources */,
