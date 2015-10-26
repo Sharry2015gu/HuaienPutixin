@@ -12,6 +12,7 @@
 #import "NewsViewController.h"
 #import "UserInfoEditingViewController.h"
 #import "PayViewController.h"
+#import "AppShareViewController.h"
 @interface LeftViewController (){
 
     UIImageView * bgImage;
@@ -204,9 +205,25 @@
     helpLabel.font=[UIFont systemFontOfSize:font];
     [view addSubview:helpLabel];
     
-   
+    UIButton  * shareButton = [[UIButton alloc] initWithFrame:CGRectMake(reCharge.frame.origin.x,helpLabel.frame.origin.y + 15,width * 0.2,height * 0.13)] ;
+    [shareButton setBackgroundImage:[UIImage imageNamed:@"share_white_icon"] forState:UIControlStateNormal];
+    shareButton.backgroundColor = [UIColor yellowColor];
+    [shareButton addTarget:self action:@selector(shareButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:shareButton];
+    
+    UILabel  * shareLabel = [[UILabel alloc] initWithFrame:CGRectMake(reChargelabel.frame.origin.x,shareButton.frame.origin.y+height * 0.2, 50,20)];
+    shareLabel.text = @"分享";
+    shareLabel.font = [UIFont systemFontOfSize:font];
+    [view addSubview:shareLabel];
 }
 #pragma mark ----按钮事件----
+//分享
+-(void)shareButtonClick
+{
+    AppShareViewController * appShareVc = [[AppShareViewController alloc]init];
+    [self.sideMenuViewController  setContentViewController:appShareVc animated:appShareVc];
+    [self.sideMenuViewController hideMenuViewController];
+}
 //图片
 -(void)photoTapped{
     UserInfoEditingViewController  * head=[[UserInfoEditingViewController alloc]init];
@@ -414,7 +431,4 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex
     
     return numberString;
 }
-
-
-
 @end
