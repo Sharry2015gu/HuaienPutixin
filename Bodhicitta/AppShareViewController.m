@@ -13,6 +13,8 @@
 #import "QRCodeGenerator.h"
 @interface AppShareViewController ()<ZBarReaderDelegate>
 @property(nonatomic,strong)NSString  *  downLoadUrlStr;
+@property(nonatomic,strong)UIImageView * subImageView;
+@property(nonatomic,strong)UILabel *inviteLabel;
 @end
 
 @implementation AppShareViewController
@@ -20,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createUI];
+    [self loadURL];
     [self createNavBar];
 }
 -(void)createUI
@@ -48,31 +51,85 @@
     [self.view addSubview:imageView];
     
     UIImageView *  subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(15,15,imageView.frame.size.width - 2* 15,imageView.frame.size.height - 2* 15)];
+    self.subImageView = subImageView;
     [imageView addSubview:subImageView];
     
-    AppDelegate  *delegate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSString * huaienId = [delegate.accountBasicDict objectForKey:@"huaienID"];
-    NSString  * downLoadUrl = [NSString stringWithFormat:@"http://u.app.huaien.com/AjaxTuiGuang/GetTGUrl.do?Type=1&appID=15&Code=%@",huaienId];
-    UIImage  *image = [QRCodeGenerator qrImageForString:downLoadUrl imageSize:imageView.frame.size.width];
-    subImageView.image = image;
-   
+    
     UILabel  *inviteLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,CGRectGetMaxY(imageView.frame)+10,SCREEN_WIDTH,20)];
+    self.inviteLabel = inviteLabel;
     inviteLabel.text = @"邀请好友一起修行祈福";
     inviteLabel.font = [UIFont systemFontOfSize:18];
     inviteLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:inviteLabel];
     
-    UIButton  * btn = [[UIButton alloc] initWithFrame:CGRectMake(30,CGRectGetMaxY(inviteLabel.frame)+15,SCREEN_WIDTH - 2 * 30,40)];
+}
+-(void)loadURL
+{
+    AppDelegate  *delegate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString * huaienId = [delegate.accountBasicDict objectForKey:@"huaienID"];
+    NSString  * downLoadUrl = [NSString stringWithFormat:@"http://u.app.huaien.com/AjaxTuiGuang/GetTGUrl.do?Type=1&appID=15&Code=%@",huaienId];
+    [delegate.sessionManager GET:downLoadUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        id jsonData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSNumber * result  = jsonData[@"Result"];
+        NSInteger resultInteger = [result integerValue];
+        WS(weakSelf);
+        if (resultInteger == 1) {
+            self.downLoadUrlStr = jsonData[@"Model"];
+            [weakSelf createImage];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+-(void)createImage
+{
+    UIImage  *image = [QRCodeGenerator qrImageForString:self.downLoadUrlStr imageSize:self.subImageView.frame.size.width];
+    self.subImageView.image = image;
+    
+    UIButton  * btn = [[UIButton alloc] initWithFrame:CGRectMake(30,CGRectGetMaxY(self.inviteLabel.frame)+15,SCREEN_WIDTH - 2 * 30,40)];
+    btn.titleLabel.font = [UIFont systemFontOfSize:18];
+    if (fabs(SCREEN_HEIGHT-667) < 1)
+    {
+        
+    }
+    else
+    {
+        if (fabs(SCREEN_HEIGHT -568) < 1) {
+        }
+        else if (fabs(SCREEN_HEIGHT - 736) < 1)
+        {
+        }
+        else
+        {
+            btn.frame = CGRectMake(30,CGRectGetMaxY(self.inviteLabel.frame)+5,SCREEN_WIDTH -2* 30,30);
+        }
+    }
     btn.backgroundColor =  majorityColor;
     [btn setTitle:@"复制链接" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:18];
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    
+
 }
+#pragma mark  --------复制链接
 -(void)btnClick
 {
-    
+    UIPasteboard *pasteboard  = [UIPasteboard generalPasteboard];
+    pasteboard.string  = self.downLoadUrlStr;
+    //提示 链接已经复制到剪贴板
+    UILabel *label = [[UILabel alloc]init];
+    label.frame = CGRectMake((SCREEN_WIDTH - 200) / 2, SCREEN_HEIGHT*0.68, 200, 50);
+    label.text = @" 链接已经复制到剪贴板";
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = 1;
+    label.backgroundColor = [UIColor blackColor];
+    label.font = [UIFont boldSystemFontOfSize:12];
+    [self.view addSubview:label];
+    [UIView animateWithDuration:1.5 animations:^{
+        label.alpha = 0;
+    } completion:^(BOOL finished) {
+        [label removeFromSuperview];
+    }];
+ 
 }
 -(void)createNavBar
 {
