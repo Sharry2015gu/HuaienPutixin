@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8641D1DC-D8FB-458B-BD7A-CEF514C23FFE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bodhicitta</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BD2AF61AA3FD5FAC2576EE15DA2D3D531F9A64EC</key>
+		<string>github.com:Sharry2015gu/HuaienPutixin.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Bodhicitta.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BD2AF61AA3FD5FAC2576EE15DA2D3D531F9A64EC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:Sharry2015gu/HuaienPutixin.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BD2AF61AA3FD5FAC2576EE15DA2D3D531F9A64EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD2AF61AA3FD5FAC2576EE15DA2D3D531F9A64EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>%E8%8F%A9%E6%8F%90%E5%BF%83%20git</string>
+		</dict>
+	</array>
+</dict>
+</plist>
